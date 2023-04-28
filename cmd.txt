@@ -1,0 +1,12 @@
+CREATE A NEW REPOSITORY
+git init
+git add documento
+git commit -m "commento"
+git branch -M main
+git remote add origin (link repo)
+git push -u origin main
+
+PUSH AN EXISTING REPOSITORY
+git remote add origin (link repo)
+git branch -M main
+git push -u origin main
