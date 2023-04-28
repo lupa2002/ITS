@@ -1,10 +1,13 @@
 CREATE A NEW REPOSITORY
 git init
-git add documento
+git add documento (oppure per cartelle git add .)
 git commit -m "commento"
 git branch -M main
 git remote add origin (link repo)
-git push -u origin main
+git fetch
+git rebase origin/branch
+git push -u origin branch
+
 
 PUSH AN EXISTING REPOSITORY
 git remote add origin (link repo)
