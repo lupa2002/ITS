@@ -6,7 +6,7 @@ git branch -M main
 git remote add origin (link repo)
 git fetch
 git rebase origin/branch
-git push -u origin branch
+git push -u origin (e branch ?)
 
 
 PUSH AN EXISTING REPOSITORY
