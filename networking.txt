@@ -1,53 +1,81 @@
-Ecco un'analisi dettagliata su come configurare una rete in due sedi di un'azienda tramite VPN, inclusa la configurazione della rete Wi-Fi e dei server.
+cyber=utilizzo vlan !=, vpn e fw
+os=openvpn,fw cisco virtualizzato:open-sense, hyper-v->prox_mox (virtualizzazione sistemi operativi, gestione su un unico server)
 
-Scelta della tecnologia VPN
-La prima cosa da fare è scegliere la tecnologia VPN che si intende utilizzare per connettere le due sedi. Esistono diverse tecnologie VPN disponibili, tra cui PPTP, L2TP, SSL VPN, e IPsec. In generale, le VPN IPsec sono la scelta più comune per le aziende, in quanto offrono un alto livello di sicurezza e scalabilità.
+1. Installazione delle rete Wi-Fi
+2. Scelta del Firewall
+3. Configurazione Firewall
+4. Installazione del Firewall
+5. Scelta dell VPN
+6. Installazione della VPN
+7. Scelta della tipologia di switch
+8. Scelta delle VLAN
+9. Configurazione dei server
+10. Test della connessione VPN
 
-Configurazione del server VPN:
 
-Il primo passo è installare e configurare un server VPN in una delle due sedi (ad esempio, a Verona). Il server VPN deve essere dotato di un indirizzo IP statico e di un firewall configurato per consentire il traffico VPN. È inoltre importante che il server VPN sia protetto da una password sicura e che sia configurato per consentire solo l'accesso ai client VPN autorizzati.
-La configurazione specifica dipenderà dalla tecnologia VPN scelta, ma in generale, il server VPN dovrà essere configurato con le seguenti informazioni:
-Indirizzo IP del server
-Porta del server VPN (solitamente la 443 per SSL VPN o la 500 per IPsec)
-Tipo di autenticazione (ad esempio, password, certificati digitali, token)
-Protocollo VPN (ad esempio, L2TP, IPsec)
-Modalità di crittografia dei dati (ad esempio, AES, 3DES)
-Intervallo di indirizzi IP per i client VPN
-Configurazione del client VPN
+1. Installazione rete WIFI:
+- Determinare numero di dispositivi presenti nella rete -> larghezza banda
+- Determinare area copertura e numero aziende
+- Configurazione della rete Wi-Fi in entrambe le sedi per consentire l'accesso alla rete VPN tramite connessioni wireless.
+  Per fare ciò, è necessario dotare le sedi di un router Wi-Fi, configurarlo in modo che le reti Wi-Fi possano accedere alla VPN.
+- Configurare il router Wi-Fi con le impostazioni di rete appropriate, come l'indirizzo IP, il gateway predefinito e la subnet mask.
+- Configurare la rete Wi-Fi con le impostazioni appropriate per la sicurezza, come l'utilizzo di una password sicura, ad esempio WPA2.
 
-Il secondo passo è configurare il client VPN nell'altra sede (ad esempio, a Milano). Anche in questo caso, la configurazione dipenderà dalla tecnologia VPN scelta, ma in generale, il client VPN dovrà essere configurato con le seguenti informazioni:
+2. Scelta del Firewall:
+Per l'installazione del Firewall si va a preferire un server cloud semplicemente per ovviare alla necessità di investire in hardware aggiuntivo.
+Un firewall cloud è flessibile, ovvero è facilmente configurabile e personalizzabile per soddisfare le esigenze specifiche dell'organizzazione; è di facile gestione, siccome sono gestiti e monitorati dal provider di servizi cloud, il che significa che le organizzazioni non devono preoccuparsi di installare, configurare e gestire l'hardware; riduzione dei costi operativi, poiché non è necessario acquistare software costosi e mantenere l'hardware.
+Come ultima caratteristica offre una protezione più completa, siccome sono dotati di funzionalità di sicurezza avanzate, come protezione da attacchi DDoS e gestione delle politiche di sicurezza.
 
-Indirizzo IP del server VPN
-Porta del server VPN
-Tipo di autenticazione
-Protocollo VPN
-Modalità di crittografia dei dati
-Intervallo di indirizzi IP per il client VPN
-È importante assicurarsi che la configurazione del client VPN sia corretta e che sia configurato per utilizzare le stesse impostazioni di autenticazione e crittografia del server VPN.
+3. Configurazione Firewall:
+Una volta scelto il firewall bisogna definire gli obiettivi di sicurezza dell'organizzazione, indicando quali servizi di rete devono essere disponibili, quali protetti e quali tipi di minacce si desidera bloccare.
+Bisogna inoltre identificare le regole di sicurezza che devono essere applicate, che definiscono quali paccehtti di rete devono essere consentiti e quali devono essere bloccati; poi bisogna configurare le opzioni avanzate, come la protezione da attacchi DDoS, l'analisi dei pacchetti e la gestione delle policy.
+La fase di test e ottimizzazione è importante per garantire la massima efficienza e sicurezza; ciò può includere la verifica delle regole di sicurezza, la valutazione delle prestazioni del firewall e l'ottimizzazione delle impsotazioni di sicurezza.
+Dopo la configurazione è importante monitorare il funzionamento del firewall per rilevare eventuali problemi di sicurezza.
 
-Configurazione della rete Wi-Fi
-Una volta configurata la VPN, è possibile configurare la rete Wi-Fi in entrambe le sedi per consentire l'accesso alla rete VPN tramite connessioni wireless.
+4. Installazione del Firewall
 
-Per fare ciò, è necessario dotare le sedi di un router Wi-Fi, configurarlo in modo che le reti Wi-Fi possano accedere alla VPN e configurare gli utenti per l'accesso alle reti Wi-Fi.
+Il Firewall va installato in entrambe le sedi e, supponendo di avere una sede principale ed una succursale, nella sede principale vanno settate le policy e (in entrambe le sedi)aperte le porte per consentire la connessione VPN.
 
-In particolare, sarà necessario:
+5. Scelta della VPN
+Nelle sedi vengono impostate delle VPN site-to-site, (se vogliamo utilizzarne una open source utilizzeremo OpenVPN) che garantiscono una connessione sicura tra reti, assicurando che i dati trasmessi durante la comunicazione siano criptati e che non possano essere catturati da terzi.
 
-Configurare il router Wi-Fi con le impostazioni di rete appropriate, come l'indirizzo IP, il gateway predefinito e la subnet mask
-Configurare il router Wi-Fi per consentire l'accesso alla rete VPN. Ciò può essere fatto utilizzando la funzione VPN integrata del router o utilizzando un software VPN di terze parti.
-Creare una rete Wi-Fi dedicata per gli utenti della sede, separata dalla rete aziendale principale. Ciò aiuta a garantire che gli utenti della rete Wi-Fi non abbiano accesso a informazioni riservate o sensibili dell'azienda.
+6. Installazione della VPN
+Il primo passo è quello di installare e configurare un server VPN in una delle due sedi.
+Il server VPN deve essere dotato di un indirizzo IP statico e di un firewall, già figurato per consentire il traffico VPN.
+Il server deve essere protetto da una password sicura e che sia configurato in modo che in ingresso sia consentito solo l'accesso agli utenti autorizzati.
+In generale un server VPN dovrà essere configurato con le seguenti informazioni:
+-Indirizzo IP del server
+-Porta del server VPN
+-Tipo di autenticazione (ad esempio password e certificati)
+-Modalità di crittografia dei dati (ad esempio AES, 3DES)
+-Intervallo di indirizzi IP per i client VPN
+E cosi faremo anche per la seconda sede.
 
-Configurare la rete Wi-Fi con le impostazioni appropriate per la sicurezza, come l'utilizzo di una password sicura per l'accesso alla rete e l'utilizzo di un protocollo di crittografia sicuro, ad esempio WPA2.
-Configurazione dei server
-Per consentire la comunicazione tra le due sedi, è necessario configurare i server in modo che possano comunicare tramite la VPN. Ciò può essere fatto configurando le impostazioni di rete sui server stessi.
+7. Scelta della tipologia di switch
 
-In particolare, sarà necessario:
+Per la parte di configurazione degli switch, utilizzeremo degli switch managed, che hanno la caratteristica di configurare e monitorare il traffico di rete attraverso un'interfaccia, che permette di configurare le prote di rete, le VLAN e altri parametri.
+Le funzionalità avanzate che possono essere trovate in uno switch managed includono:
+VLAN: rete virtuale che consente di separare il traffico in diverse reti logiche all'interno della stessa rete fisica.
+Port Mirroring: Una funzione che consente di copiare il traffico di una porta e inviarlo a un'altra porta.
+Sicurezza della rete mediante il filtraggio dei pacchetti, l'autenticazione e l'implementazione di policy.
 
-Configurare gli indirizzi IP dei server in modo che siano compatibili con la subnet della rete VPN.
-Configurare le impostazioni di rete sui server per utilizzare la VPN come gateway predefinito.
-Configurare le impostazioni di rete sui server per consentire il traffico attraverso la VPN.
-Test della connessione VPN
-Infine, è importante testare la connessione VPN per garantire che funzioni correttamente e che i client VPN possano comunicare con i server della rete remota.
+8. Scelta delle VLAN
 
-Ciò può essere fatto connettendosi alla VPN da una delle due sedi e verificando che sia possibile accedere alle risorse della rete remota, come i server o le cartelle condivise.
+Una VLAN si puà definire come una virtualizzazione di una rete fisica (vantaggi: sicurezza e limitazione costi -> 1 solo dispositivo da mantenere)
+Le VLAN si suddividono principalmente in due categorie: tagged e untagged.
+Nelle VLAN tagged notiamo che nei pacchetti viene inserito (nella parte dell'intestazione) un tag che indica il numero della VLAN alla quale si connetterà(es: 10,20; ci si connetterà alle vlan 10 e 20).
+In queste VLAN i dispositivi sono a conoscenza delle vlan e di conseguenza distinguono il traffico delle vlan da quelle della rete principale.
+Nelle VLAN untagged(tipo la rete degli ospiti, non controllata) non abbiamo il tag all'interno del pacchetto, quindi i dispositivi collegati non saranno a conoscenza delle vlan presenti e il traffico verrà visto come se fosse inviato sulla rete principale.
 
-In sintesi, la configurazione di una rete in due sedi di un'azienda tramite VPN richiede una pianificazione accurata e una conoscenza approfondita delle tecnologie VPN, delle reti Wi-Fi e dei server. Tuttavia, una volta configurata correttamente, la VPN può fornire una connessione sicura e affidabile tra le due sedi, consentendo la comunicazione e la condivisione di risorse tra le due sedi in modo efficiente e sicuro.
+9. Configurazione dei server
+
+Per consentire la comunicazione tra le due sedi è necessario configurare i server in modo che possano comunicare tramite la VPN.
+Per fare ciò sarà necessario:
+-Configurare gli indirizzi IP in modo che siano compatibili con la rete VPN.
+-Configurare le impostazioni di rete per utilizzare la VPN come gateway predefinito.
+-Configurare le impostazioni di rete per consentire il traffico attraverso la VPN.
+
+10. Test della connessione VPN
+
+Infine è importante testare la connessione VPN per garantire che funzioni correttamente e che i client possano comunicare con i server remoti.
+Ciò può essere fatto connettendosi alla VPN da una delle due sedi e verificando che sia possibile accedere alle risorse della rete remota, come le cartelle condivise.
