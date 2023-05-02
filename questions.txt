@@ -1,0 +1,148 @@
+HELPDESK
+Il tecnico help desk è il professionista che riceve le richieste di assistenza tecnica per problemi hardware o software da parte degli utenti e ne fornisce soluzioni immediate. 
+Il suo ruolo principale è quello di essere il primo punto di contatto dell'utente e di rispondere tempestivamente alle richieste tramite un apposito programma di ticket management. 
+Il tecnico help desk può essere di due tipi: interno, per fornire assistenza all'interno dell'azienda, o esterno, per fornire servizi di help desk in outsourcing. 
+Il tecnico help desk ha tre livelli di intervento, ognuno con diversi livelli di competenza e responsabilità. 
+
+
+AI
+L'intelligenza artificiale è la scienza che studia gli agenti intelligenti e la loro capacità di prendere azioni per raggiungere un obiettivo. 
+L'AI si divide in induzione (ragionamento) e deduzione (apprendimento), con un'attenzione particolare al machine learning e al deep learning. 
+Il deep learning utilizza una rete neurale artificiale per apprendere da dati non strutturati, mentre il machine learning utilizza algoritmi tradizionali per apprendere dai dati in base ai feedback. 
+Il continual learning (o lifelong learning) è un concetto che mira a imparare molti compiti senza dimenticare quelli appresi in precedenza.
+
+
+LICENZE e PRIVACY
+Il software è un insieme di programmi per computer, dati e documentazione. 
+Il codice sorgente è la sequenza di caratteri scritta da un programmatore, mentre il codice oggetto è il codice sorgente compilato per essere eseguito dalla macchina. 
+Il diritto di proprietà intellettuale è un diritto sui beni immateriali frutto dell'intelletto e delle creazioni originali, e le licenze sono il permesso di utilizzare la proprietà intellettuale di un'altra persona.
+
+In Italia, il software è protetto dal diritto d'autore, mentre negli Stati Uniti è possibile proteggere il software attraverso un brevetto. 
+I diritti di proprietà intellettuale possono essere di natura morale o di sfruttamento economico, a seconda che l'autore sia un dipendente o meno. 
+Se un'azienda subappalta parte della creazione del software a un'altra azienda, i diritti non sono regolati dalla legge ma devono essere specificati nel contratto.
+Una licenza FOSS è un tipo di licenza software che promuove la libertà di utilizzo e la condivisione del software, permettendo agli utenti di accedere al codice sorgente e di modificarlo liberamente, senza restrizioni o pagamenti di licenza.
+
+
+DB
+FUNZIONI:
+Insieme di comandi predefiniti per manipolare i dati, consentono di eseguire operazioni specifiche sui dati come la selezione, l'aggiornamento, l'inserimento, l'eliminazione e l'organizzazione dei dati.
+
+INSERT INTO SELECT:
+Inserire i dati di una o più tabelle in un'altra tabella. 
+
+UPDATE JOIN:
+Combinare le informazioni di più tabelle e di utilizzarle per aggiornare colonne in una tabella di destinazione.
+
+IF e IFNULL:
+IF viene utilizzato per eseguire una logica condizionale all'interno di una query SQL.
+IFNULL viene utilizzato per restituire un valore di default se il valore di una colonna è "NULL".
+
+LIMIT e OFFSET:
+LIMIT viene utilizzato per specificare il numero di record da restituire.
+OFFSET permette di indicare il punto di partenza dell'estrazione dei record.
+
+RAND:
+La funzione RAND() restituisce un numero casuale decimale compreso tra 0 e 1.
+
+VARIABILI UTENTE:
+Le variabili utente sono utilizzate per passare un valore da un'istruzione SQL a un'altra.
+
+TABELLE TEMPORANEE:
+Le tabelle temporanee sono utilizzate per conservare dati per un breve periodo di tempo.
+
+STORED PROCEDURE:
+Serie di istruzioni SQL che possono essere eseguite multiple volte con un singolo comando. 
+Possono essere richiamate da qualsiasi applicazione che abbia accesso al database.
+
+STORED FUNCTION:
+Contengono istruzioni SQL e restituiscono un valore come risultato dell'elaborazione. 
+Semplificano le query complesse e rendono più facile l'accesso ai dati all'interno del database.
+
+CURSORI:
+Manipolano i risultati delle query in modo iterativo, una riga alla volta. 
+In pratica, i cursori consentono di "scorrere" le righe restituite da una query e manipolarle in modo separato.
+
+ROW NUMBER:
+Assegna un numero di riga univoco a ciascuna riga del risultato della query. Questa funzione è utile quando si vuole numerare le righe in una tabella o in una vista per raggrupparle o ordinarle in base a un determinato criterio.
+
+
+WINSERVER
+Il termine "Bare-metal" si riferisce alla macchina fisica, come un server rack, server blade o server tower. 
+Hyper-V è una tecnologia di virtualizzazione che consente di eseguire più sistemi operativi e applicazioni su una singola macchina fisica, condividendo le risorse hardware tra le macchine virtuali in modo efficiente. 
+Un dominio è un insieme di dispositivi o utenti che sono raggruppati insieme e amministrati come un'entità unica. 
+In termini di Internet, un dominio è un'unità di organizzazione della gerarchia del sistema dei nomi di dominio (DNS), che consente di assegnare un nome univoco ad un insieme di risorse o dispositivi e di accedervi tramite questo nome piuttosto che tramite l'indirizzo IP numerico. 
+Il Domain Controller è la macchina in cui viene installato l'Active Directory, dove si può gestire l'autenticazione e i vari sistemi al suo interno. 
+L'Active Directory consente di mantenere e gestire un database centralizzato di informazioni sugli utenti, i gruppi, facilitando così la gestione dell'accesso e dei permessi.
+Per creare un dominio, è necessario avere una nomenclatura della macchina SRV-DC e installare il DNS, Active Directory e DHCP, aggiungere ruoli e funzionalità e lasciare tutte le altre opzioni di default. 
+È necessario impostare la password dell'Active Directory e assegnare un indirizzo IP statico al Domain Controller, impostando l'indirizzo del DNS su se stesso. 
+Infine, è necessario configurare i servizi appena installati e impostare il controller di dominio aggiungendo una nuova foresta.
+
+
+BLOCKCHAIN
+E’ una banca dati aperta e inalterabile, che permette di validare e registrare che una determinata transazione o azione sia effettivamente avvenuta, e in uno specifico punto nel tempo.
+La transazione o azione digitale può essere di tutti i tipi: soldi, prodotti, servizi, file, proprietà ecc.
+
+
+DOCKER
+Docker è una piattaforma di containerizzazione open source che permette agli sviluppatori di impacchettare le applicazioni in container, combinando il codice sorgente dell'applicazione con le librerie del sistema operativo e le dipendenze necessarie per eseguire quel codice in qualsiasi ambiente. 
+Le immagini Docker sono template funzionali per la creazione dei container, definite attraverso un Dockerfile. 
+I container sono istanze che eseguono un'immagine e sono eseguibili ovunque, virtualizzando il sistema operativo. 
+L'architettura Docker è basata sul pattern client-server e i componenti principali sono il Docker Daemon, il Docker Client e il Docker Registry. 
+I container offrono vantaggi come un peso minore, maggiore efficienza delle risorse e migliore produttività degli sviluppatori.
+Docker Compose è uno strumento open source che permette di definire e gestire applicazioni Docker attraverso un file di configurazione in formato YAML. 
+Con Docker Compose, è possibile definire la configurazione dell'applicazione una volta sola e utilizzarla per creare e gestire l'intera applicazione su qualsiasi macchina su cui sia installato Docker Compose, semplificando il processo di distribuzione e gestione delle applicazioni.
+
+BASH
+if [ condition ]
+then
+   # comandi
+else
+   # comandi
+fi
+
+while [ condition ]
+do
+   # comandi
+done
+
+
+JAVASCRIPT:
+JavaScript è un linguaggio di programmazione ad alto livello, interpretato e orientato agli oggetti, utilizzato principalmente per aggiungere interattività e dinamicità alle pagine web. 
+
+NODEJS
+Node.js è un runtime JavaScript server-side, ovvero un ambiente di esecuzione che permette di eseguire codice JavaScript al di fuori del browser, sul server. 
+Grazie alla sua architettura orientata agli eventi e al modello di I/O asincrono, Node.js consente di gestire un elevato numero di richieste contemporanee senza bloccare il thread principale, migliorando l'efficienza e la scalabilità dell'applicazione.
+Per servire le richieste, Node.js mantiene un pool di thread limitato e ogni volta che arriva una richiesta, la mette in una coda. 
+Quando arriva una richiesta, il ciclo degli eventi la prende dalla coda e controlla se questa richiede un'operazione di input/output bloccante, in tal caso le viene assegnato un thread dal pool di thread interni.
+Node.js è adatto per elaborare comunicazioni in tempo reale, Internet of Things e streaming dei dati. 
+Installando Node.js si installa anche il suo gestore di pacchetti chiamato NPM. Tramite questo strumento, è possibile installare pacchetti, gestire le versioni e le dipendenze.
+
+
+NETWORKING 
+IP PRIVATI vs PUBBLICI:
+Un indirizzo IP è un identificatore numerico univoco assegnato a ogni dispositivo connesso a una rete, come Internet. 
+L'indirizzo IP pubblico è un indirizzo univoco assegnato dall'ISP al router o al modem che connette una rete locale a Internet. 
+Questo indirizzo viene utilizzato per identificare la rete sulla quale si trova il dispositivo e per consentire la comunicazione tra la rete locale e Internet.
+L'indirizzo IP privato è un indirizzo assegnato ai dispositivi all'interno di una rete locale. 
+Questi indirizzi sono utilizzati per consentire la comunicazione tra i dispositivi all'interno della rete locale.
+Quando un dispositivo all'interno di una rete locale richiede una connessione a Internet, il router o il modem trasmette la richiesta con il suo indirizzo IP pubblico.
+
+CLASSI PRIVATE E NON:
+In passato, gli indirizzi IP erano suddivisi in classi, ognuna delle quali aveva un intervallo specifico di indirizzi IP assegnati.
+Gli intervalli di indirizzi IP privati sono i seguenti:
+Classe A: 10.0.0.0 - 10.255.255.255
+Classe B: 172.16.0.0 - 172.31.255.255
+Classe C: 192.168.0.0 - 192.168.255.255
+Gli indirizzi IP assegnati all'interno di questi intervalli possono essere utilizzati da qualsiasi dispositivo all'interno di una rete privata.
+
+VLAN:
+Una VLAN (Virtual LAN) è una tecnologia di rete che consente di suddividere una rete fisica in più reti logiche, ciascuna con uno specifico set di utenti, dispositivi e risorse di rete. 
+Ciò consente di isolare il traffico di rete in gruppi specifici, aumentando la sicurezza e migliorando le prestazioni della rete.
+Una VLAN è costituita da uno o più switch di rete configurati per creare una o più reti logiche indipendenti. 
+I dispositivi all'interno di una VLAN possono comunicare tra loro come se fossero collegati alla stessa rete fisica, anche se fisicamente sono collegati a switch diversi.
+
+Per creare una VLAN è necessario:
+Configurare gli switch di rete
+Creare le VLAN indicandone l'ID numerico e associandola a una o più porte dell'hardware.
+Configurare le porte: le porte degli switch di rete devono essere configurate per associare i dispositivi alla VLAN corretta.
+Una volta configurata la VLAN, i dispositivi possono essere assegnati alla VLAN corretta in base alle loro esigenze di rete. Ad esempio, è possibile creare una VLAN per i dipendenti dell'azienda e una VLAN separata per i visitatori. In questo modo, il traffico di rete dei dipendenti e dei visitatori viene isolato l'uno dall'altro, migliorando la sicurezza e le prestazioni della rete.
