@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    ports:
+      - 9443:9443
+      - 9000:9000
+    environment:
+      - VIRTUAL_HOST=portainer.local
+      - VIRTUAL_PORT=9000
+    networks:
+      - nginx-proxy
+    volumes:
+      - data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+volumes:
+  data:
+
+networks:
+  nginx-proxy:
+    external: true

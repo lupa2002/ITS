@@ -1,0 +1,18 @@
+services:
+
+  drupal:
+    image: drupal:8-apache
+    ports:
+      - 8081:81
+    volumes:
+      - /var/www/html/modules
+      - /var/www/html/profiles
+      - /var/www/html/themes
+      - /var/www/html/sites
+    restart: always
+
+  postgres:
+    image: postgres:10
+    environment:
+      POSTGRES_PASSWORD: example
+    restart: always
