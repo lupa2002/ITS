@@ -1,0 +1,84 @@
+JSON (JavaScript Object Notation) è un formato universale (basato su un sottosistema del linguaggio di programmazione Javascript) per lo scambio dei dati, indipendentemente dal linguaggio di programmazione utilizzato.
+
+JSON è basato su 2 principali strutture:
+- l'insieme di coppie chiave:valore (nome:luca) {possono contenere oggetti, record, dizionari,...}
+- un elenco ordinato di valori, per esempio array, elenchi,...
+
+OGGETTO: serie non ordinata di chiave:valore inserito tra {}
+Ogni chiave è seguita dai : e da un valore
+Ogn oggetto è seguito sempre da una , -> {nome:"luca"},{nome:"Giovanni"} a meno che non siamo all'ultimo oggetto, dove non va messa
+Se voglio inserire un valore vuoto tra parentesi grafe scriverò {}
+
+ARRAY: raccolta ordinata di valori, separati da na virgola -> [valore1, valore2, valore3]
+Un valore può essere un numero, una stringa, un booleano o uno stato NULL, un'array o un altro oggetto(qui si parla di strutture annidate).
+
+ESERCIZIO 1: creiamo un oggetto contente un'arra di valori
+
+//all'inizio di un file JSON apriamo sempre le graffe
+{
+studenti:
+[ //array di oggeti
+{"nome":"luca", cognome:"lupatini", "eta":20, "studente": true, "citta":"Verona"},
+{"nome":"marco", cognome:"signoretto", "eta":20, "studente": true, "citta":"Verona"}
+]
+}
+
+
+ESERCIZIO 2: STRUTTURE ANNIDATE
+
+{
+"studenti":
+[
+{"nome":"luca", "cognome":"lupatini", "mezzo":{"tipo": "auto", "modello": "audi"}, "eta":20, "studente": true, "indirizzo":{"via":"roma", "numero_civico":4}, "citta'":"Verona"}
+{"nome":"mattia", "cognome":"montanari", "mezzo":{"tipo": "bici", "modello": "bottecchia"}, "eta":22, "studente": false, "indirizzo":{"via":"romano", "numero_civico":5}, "citta'":"Verona"}
+]
+}
+
+-------------------
+NoSQL: rispetto al metodo di archiviazione dati sequenziale (SQL) ha un differente metodo di archiviazione e di lettura
+-------------------
+I vantaggi sull'utilizzo di un database non sequenziale (NoSQL) sono la rapida scalabilità, per riuscire a gestire set di dati di grandi dimensioni, tipicamente non strutturati.
+-------------------
+Esempio: creazione di un database SQL e NoSQL riguardo un libro:
+
+SQL: 
+- vengono creati gli attributi
+- i dati sono legati alle altre tabelle attraverso FK
+- è utilizzato per dati importanti, ma usati poco
+- è più pesante, ma più sicuro (perché troviamo uno storico dei comandi)
+
+NoSQL:
+- ad ogni oggetto libro è associato un JSON assestante
+- lettura molto più veloce rispetto alla lettura di un db sequenziale
+
+---------------------
+
+COMANDI:
+
+show dbs
+use NOME_DB
+db.NOME_DB.insertOne({chiave:valore, chiave1:valore1})
+db.NOME_DB.find({chiave:valore}) //lasciato vuoto per stampare tutto il contenuto
+db.NOME_DB.updateOne({parametro identificativo/PK},{$set:{parametri da cambiare}})
+db.NOME_DB.deleteOne({parametri di ricerca})
+
+db.NOME_DB.insertMany([{chiave:valore},{chiave:valore}])
+db.NOME_DB.deleteMany({parametro di ricerca}) //lasciato vuoto -> drop *
+
+
+
+
+ESERCIZIO 2:
+
+db.es3.insertMany(
+{"nome":"luca", "cognome":"lupatini", "mezzo":{"tipo": "auto", "modello": "audi"}, "eta":20, "studente": true, "indirizzo":{"via":"roma", "numero_civico":4}, "citta'":"Verona"},
+{"nome":"mattia", "cognome":"montanari", "mezzo":{"tipo": "bici", "modello": "bottecchia"}, "eta":22, "studente": false, "indirizzo":{"via":"romano", "numero_civico":5}, "citta'":"Verona"},
+{"nome":"matteo", "cognome":"peruzzi", "mezzo":{"tipo": null, "modello": null}, "eta":25, "studente": true, "indirizzo":{"via":"IV Novembre", "numero_civico":9}, "citta'":"Verona"},
+{"nome":"marco", "cognome":"giarolo", "mezzo":{"tipo": "auto", "modello": "BMW"}, "eta":20, "studente": true, "indirizzo":{"via":"roma", "numero_civico":4}, "citta'":"Verona"}
+)
+
+
+db.ese3.find({"mezzo.tipo":"auto"},{"mezzo.modello":"audi"})
+
+
+db.ese3.deleteMany({})
