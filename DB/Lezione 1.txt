@@ -55,9 +55,10 @@ NoSQL:
 
 COMANDI:
 
+use NOME_DB //crea db ma se non inserisci dati quando esco viene eliminato
 show dbs
 use NOME_DB
-db.NOME_DB.insertOne({chiave:valore, chiave1:valore1})
+db.NOME_COLLECTION.insertOne({chiave:valore, chiave1:valore1})
 db.NOME_DB.find({chiave:valore}) //lasciato vuoto per stampare tutto il contenuto
 db.NOME_DB.updateOne({parametro identificativo/PK},{$set:{parametri da cambiare}})
 db.NOME_DB.deleteOne({parametri di ricerca})
