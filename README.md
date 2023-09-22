@@ -1,7 +1,7 @@
 # ITS 2 ANNO
 # Repository delle Lezioni del Secondo Anno
 
-Benvenuti nella repository delle lezioni del secondo anno! Questo repository è stato creato per raccogliere e condividere materiali didattici,appunti e risorse utili per le lezioni del secondo anno del nostro corso.
+Benvenuti nella repository delle lezioni del secondo anno! Questo repository è stato creato per raccogliere e condividere materiali didattici, appunti e risorse utili per le lezioni del secondo anno del nostro corso.
 
 ## Contenuti
 
