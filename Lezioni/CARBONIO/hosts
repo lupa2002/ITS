@@ -1,0 +1,37 @@
+127.0.0.1       localhost
+
+### GRUPPO A
+
+141.95.103.175 corso-a1.demo.zextras.io corso-a1 b2-15-de1-corso-a-1
+141.95.110.15 corso-a2.demo.zextras.io corso-a2 b2-15-de1-corso-a-2
+141.95.110.155 corso-a3.demo.zextras.io corso-a3 b2-15-de1-corso-a-3
+141.95.107.198 corso-a4.demo.zextras.io corso-a4 b2-15-de1-corso-a-4
+141.95.100.111 corso-a5.demo.zextras.io corso-a5 b2-15-de1-corso-a-5
+146.59.117.252 corso-a6.demo.zextras.io corso-a6 b2-15-waw1-corso-d-1
+
+
+### GRUPPO B
+
+54.37.78.180 corso-b1.demo.zextras.io corso-b1 b2-15-de1-corso-b-1
+141.95.100.185 corso-b2.demo.zextras.io corso-b2 b2-15-de1-corso-b-2
+51.89.119.200 corso-b3.demo.zextras.io corso-b3 b2-15-de1-corso-b-3
+57.129.22.254 corso-b4.demo.zextras.io corso-b4 b2-15-de1-corso-b-4
+57.129.23.177 corso-b5.demo.zextras.io corso-b5 b2-15-de1-corso-b-5
+51.83.249.57 corso-b6.demo.zextras.io corso-d2 b6-15-waw1-corso-d-2
+146.59.117.172 corso-d7.demo.zextras.io corso-d7 b2-15-waw1-corso-d-4
+
+
+### GRUPPO C
+
+57.128.110.139 corso-c1.demo.zextras.io corso-c1 b2-15-sbg5-corso-c-1
+57.128.104.29 corso-c2.demo.zextras.io corso-c2 b2-15-sbg5-corso-c-2
+57.128.108.174 corso-c3.demo.zextras.io corso-c3 b2-15-sbg5-corso-c-3
+57.128.104.54 corso-c4.demo.zextras.io corso-c4 b2-15-sbg5-corso-c-4
+57.128.104.95 corso-c5.demo.zextras.io corso-c5 b2-15-sbg5-corso-c-5
+57.128.44.84 corso-c6.demo.zextras.io corso-c6 b2-15-gra11-corso-c-6
+
+### GRUPPO D
+
+#51.83.255.151 corso-d3.demo.zextras.io corso-d3 b2-15-waw1-corso-d-3
+#145.239.135.155 corso-d5.demo.zextras.io corso-d5 b2-15-waw1-corso-d-5
+#57.128.103.163 corso-d6.demo.zextras.io corso-d6 b2-15-gra11-corso-d-6
