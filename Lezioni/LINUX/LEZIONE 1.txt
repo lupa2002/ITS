@@ -1,0 +1,237 @@
+LEZIONE 1:
+
+COS'È UN INTERRUPTS?
+Segnale asincrono di sistema che esprime la "necessità di attenzione" verso la CPU espressa da un componente hardware.
+Un interrupt hardware obbliga il processore a commutare il suo stato per eseguire l'operazione indicata dall'interrupt stesso.
+Svolto il compito, il processore tornerà a lavorare sull'attività precedentemente in corso.
+Se questi interrupt sono molto frequenti possono mandare in stallo la CPU.
+
+
+/PROC
+Il file system /proc è un file system creato e mantenuto a run-time dal Kernel di Linux per tenere traccia dei vari processi che stanno funzionando sulla macchina e sul loro stato.
+
+/PROC/SYS
+Contiene molti parametri usati dal Kernel Linux; questa directory viene utilizzata per controllare e modificare alcuni di questi parametri.
+
+/PROC/CPUINFO
+Riporta informazioni sul processore (tipo, marca, modello e varie performance)
+
+/PROC/DEVICES
+Elenca i driver configurati nel Kernel corrente
+
+/PROC/DMA
+Mostra quali canali DMA sono in uso al momento
+
+/PROC/FILESYSTEMS
+Mostra i filesystem configurati, supportati nel Kernel
+
+/PROC/INTERRUPTS
+Visualizza gli interrupts in uso e quanti e quali sono usati
+
+/PROC/IOPORTS
+Mostra quali porte di I/O sono in uso al momento
+
+
+COMANDI:
+
+cat /proc/interrupts:
+Questo file registra il numero di interrupts.
+La prima colonna si riferisce al numero di IRQ(Interrupt Request).
+Ogni CPU ha a propria colonna e il proprio numero di interruzioni per IRQ.
+La colonna successiva riporta la tipologia di interruzione e l'ultima colonna contiene il nome del dispositivo che si trova su quell'IRQ.
+
+sudo cat /proc/iports:
+L'output di /proc/ioports fornisce un elenco delle porte attualmente registrate, utilizzate per la comunicazione di input o output con un dispositivo.
+La prima colonna fornisce l'intervallo degli indirizzi di memoria (che vengono assegnati durante la fase di boot) delle porte I/O riservato per il dispositivo elencato nella seconda colonna.
+Questo comando necessita dei permessi di amministratore, altrimenti mi restituisce in output tutti gli indirizzi di memoria pari a 0.
+
+
+COS'È LA DMA?
+Direct Memory Access è una funzionalità fornita da alcune architetture bus di computer che consente l'invio diretto dei dati da un dispositivo collegato, come un'unità disco, alla memoria principale della scheda madre del computer, liberando così la CPU dal coinvolgimento nel trasferimento dei dati, accelerando il funzionameno complessivo del computer.
+
+
+cat /proc/dma:
+Questo file contiene un elenco dei canali ISA DMA(Industry Standard Architecture Direct Memory Access) registrati in uso.
+
+sudo /proc/iomem:
+Questo file mostra la mappa attuale della memoria di sistema per ciascun dispositivo fisico.
+La prima colonna visualizza i registri di memoria utilizzati, la seconda elenca il tipo di memoria situata all'interno di tali registri e visualizza quali registri di memoria vengono utilizzati dal kernel all'interno della RAM di sistema.
+
+cat /proc/meminfo:
+Questo file riporta una grande quantità di informazioni sull'utilizzo della RAM del sistema.
+La maggior parte delle informazini /proc/meminfo vengono utilizzate dai comandi free, top e ps.
+Il contenuto di questo file è:
+- MemTotal: quantità totale di RAM utilizzabile, rappresentata in KiB(1024 B)
+- MemFree: quantità di memoria RAM lasciata inutilizzata dal sistema
+- Buffers: quantità in KiB di spazio di archiviazione temporaneo per i blocchi del disco non elaborato
+- Cached: quantità di RAM fisica utilizzata come memoria cache
+Sono presenti anche altri elementi come:
+- Quantità totale di memoria swap disponibile
+- Quantità di memoria utilizzata di recente
+- Quantità di memoria utilizzata meno recentemente
+- Quantità di memoria utilizzata dalle allocazioni dello stack del kernel effettuate per ciascuna attività nel sistema
+
+DIFFERENZA TRA DISPOSITIVO HOT PLUG E COLD PLUG
+L'hot plugging è l'aggiunta di un componente a un sistema informatico in esecuzione senza interruzioni significative del funzionamento del sistema.
+Il collegamento a caldo di un dispositivo non richiede il riavvio del sistema.
+Ciò è particolarmente utile per i sistemi che devono rimanere sempre in funzione, come un server.
+Esempi di hot plug possono essere l'unità disco rigido e unità a stato solido, che possono essere aggiunte a un sistema di archiviazione; oppure dispositivi USB, come mouse, tastiere e stampanti.
+
+Il cold plugging si riferisce alla situazione in cui un computer deve essere spento per aggiungere o rimuovere un componente dal computer.
+Il collegamento a freddo viene spesso utilizzato come precauzione aggiuntiva per garantire che un componente non venga danneggiato durante la rimozione o la sostituzione.
+Un dispositivo cold plug sostituito a caldo può causare malfunzionamenti e danni al dispositivo o al sistema.
+Esempi di cold plug possono essere la RAM, la CPU e la scheda video.
+
+
+COMANDI LS:
+lscpu: restituisce informazioni sull'architettura della CPU da sysfs e /proc/cpuinfo.
+Le informazioni restituite includono, ad esempio l'ID_venditore, la cpu family, il modello della CPU (model), il nome del modello (model_name), la velocità della CPU in megahertz (cpu mhx), la dimensione della cache (cache size), il numero di core (core number), i flag supportati dalla CPU (flags) e le informazioni sui socket e i nodi NUMA (Non-Uniform Memory Access).
+Negli ambienti virtualizzati, le informazioni sull'architettura della CPU visualizzato riflette la configurazione operativa del guest sistema che è tipicamente diverso da quello fisico (host) sistema.
+
+COS'È LA CPU?
+La CPU (Control Processing Unit) è il componente principale di un computer che funge da "centro di controllo".
+La CPU, chiamata anche processore "centrale", è un insieme complesso di circuiti elettronici che gestiscono il sistema operativo e le app della macchina.
+La CPU interpreta, elabora ed esegue istruzioni, molto spesso dai programmi hardware e software in esecuzione sul dispositivo.
+La CPU esegue operazioni aritmetiche, logiche e di altro tipo per trasformare i dati immessi in informazioni più utilizzabili.
+
+COS'È IL PCI?
+Peripheral Component Interconnect, è un interfaccia per aggiungere ulteriori componenti hardware a un sistema informatico.
+Ad esempio, supponiamo che tu voglia aggiungere una scheda Ethernet al tuo computer in modo che possa accedere a Internet e scambiare dati. 
+Bene, la scheda necessita di un protocollo per comunicare con il resto del sistema interno, PCI può essere l'interfaccia standard utilizzata per aggiungere questa scheda al tuo sistema. 
+Hai ancora bisogno di un driver per questa scheda affinché il kernel possa usarla, tuttavia PCI è lo slot, il bus e l'interfaccia che verranno utilizzati per aggiungere l'hardware nel sistema con un'interfaccia standard. 
+
+lspci:
+Il comando Linux lspci (elenco PCI) visualizza informazioni su ciascun bus PCI nel sistema, inclusi dettagli sui dispositivi connessi al sottosistema PCI. Queste informazioni includono i seguenti campi visualizzati in ogni riga dell'output:
+- Slot
+- Classe
+- ID Produttore
+- ID Dispositivo
+
+
+COS'È USB?
+L'USB (Universal Serial Bus) è un'interfaccia comune che consente la comunicazione tra dispositivi e un controller host come un PC o uno smartphone.
+Collega dispositivi periferici come fotocamere digitali, mouse, tastiere, stampanti, scanner, dischi rigidi esterni e unità flash.
+Una USB ha lo scopo di migliorare il plug-and-play e consentire lo scambio a caldo.
+Il plug-and-play consente al sistema operativo di configurare e rilevare un nuovo dispositivo periferico senza dover riavviare il computer.
+
+
+lsusb:
+È un comando di Linux che consente agli utenti di elencare i dispositivi USB collegati al sistema.
+Questa unità fa parte del paccheto "usbutils", che fornisce utilità per visualizzare informazion sui bus USB nel sistema e sui dispositivi ad essi collegati.
+lsusb -v / lsusb -t: restituisce in output alcune informazioni aggiuntive sulle periferiche.
+
+COS'È IL KERNEL?
+Il kernel è il componente principale di un sistema operativo.
+Gestisce le risorse del sistema ed è un ponte tra l'hardware e il software del computer.
+Un modulo del kernel, spesso chiamato driver, è un pezzo di codice che estende le funzionalità del kernel.
+I moduli vengono compilati come moduli caricabili incorportati nel kernel.
+I moduli caricabili possono essere caricati e scaricati nel kernel in esecuzione su richiesta, senza la necessità di riavviare il sistema.
+Questi moduli vengono caricati su richiesta da "udev"(gestione dispositivi).
+e sono memorizzati in /lib/modules/<kernel_version> (per trovare la versione del kernel in esecuzione utilizzare il comando uname -r).
+
+lsmod:
+Il comando lsmod viene utilizzato per visualizzare lo stato dei moduli nel kernel Linux.
+Ciò che fa il comando è leggere /proc/modules e visualizzare il contenuto del file in un elenco ben formattato.
+I dettagli che vengono restituiti in output sono:
+- modulo
+- dimensione modulo
+- istanze attive
+- quali sono i moduli richiamati (numero di volte che il modulo è stato caricato)
+Questi moduli vengono richiamati, essendo i driver generici e che necessitano di ulteriori implementazioni (comandi specifici) per svolgere mansioni particolari.
+
+
+modinfo:
+Il comando modinfo estrae le informazioni dai moduli del kernel Linux forniti da linea di comando.
+Modinfo elenca ogni attributo del modulo (nomecampo:valore), per una facile lettura.
+esempio: modinfo pcspkr.
+Per disattivare un modulo utilizziamo il comando sudo rmmod nomeModulo, mentre per riattivarlo utilizziamo sudo modprobe nomeModulo.
+
+
+Quando inseriamo una nuova periferica nel nostro PC, per essere raggiungibile dalla CPU e quindi utilizzabile, devono essere caricati dei driver.
+Quando colleghiamo una periferica gli viene assegnato un range di indirizzi di memoria virtuale.
+La procedura che viene eseguita per rendere raggiungibile la periferica sono:
+1. Inserimento della periferica
+2. Interruption
+3. Caricamento del driver (un daemon crea in /dev/ un nuovo file per rappresentare la nuova periferica appena inserita).
+Una periferica riesce a comunicare con la CPU solamente tramite interrupt.
+
+SCOLLEGAMENTO DRIVER:
+In presenza di un malfunzionamento dela periferica possiamo utilizzare il terminale per scollegare un driver e, di conseguenza, disabilitare la periferica che necessitava di quel driver per comunicare con la CPU.
+Questo metodo può essere usato per esempio quando stiamo lavorando su un server, per evitare il down-time.
+Siccome ogni volta che riavvio il PC/Server i driver delle periferiche vengono reinstallati, se voglio che un driver non venga più reinstallato devo inserirlo in una blacklist.
+
+
+COMANDO WATCH:
+Il comando watch mi permette di lanciare il successivo comando ogni n secondi.
+La sintassi è: 
+watch -n tempo
+watch -n 0.1 cat /proc/interrupts
+
+
+DIFFERENZA TRA BIOS E UEFI:
+Il BIOS (Basic Input Output System) e il UEFI (Unified Extensible Firmware Interface) sono i programmi utilizzati dal microprocessore di un computer per avviare il sistema informatico dopo l'accensione.
+Gestiscono inoltre il flusso di dati tra il Sistema Operativo del pc e i dispositivi collegati.
+Ciò che li distingue è che il BIOS inizializza le periferiche e cerca un eseguibile nell'MBR (primi 512 B) che si trova nel primo settore del disco principale.
+L'UEFI, d'altra parte, è considerato come un sistema operativo a parte, che restituisce a video non solo i dispositivi fisici da cui poter eseguire la fase di boot, ma possiamo vedere anche ogni eseguibile .efi installato.
+L'UEFI risulta più flessibile, quindi non si limita a cercare solamente nei primi 512 B il boot loader, bensì esegue ogni tipo di eseguibile (che abbia al suo interno un flag di default) che riesce a trovare (come per esempio il Sistema Operativo nella fase di boot).
+
+
+FASE DI AVVIO DI UN COMPUTER:
+-> Fase di boot
+-> Viene caricato il bootloader GRUB: programma minimale che carica tutto quello che serve per avviare il Sistema Operativo; a questo punto viene caricato l'Initial RunDisk (disco che contiene driver indispensabili per montare la partizione del Sistema Operativo e altri driver minimali come per esempio quelli per la tastiera, il mouse e alcuni driver grafici per ricevere un output).
+-> Viene avviato il Kernel, ovvero il cuore del sistema operativo che mette in counicazione il Software con l'Hardware in modo che gli applicativi non debbano dipendere dalle specifiche hardware.
+-> Viene avviato l'Init System, un meta programma che serve a lanciare tutti i servizi che rendono operativo il nostro pc, come il servizio di networking, il servizio SSH e altri servizi che girano in background durante la fase di avvio.
+-> Viene caricato il Display Manager o schermata di login
+-> Una volta che l'autenticazione viene verificata abbiamo accesso al desktop
+
+COMANDI:
+/sbin/init --version-> per conoscere il sistema di init che stiamo utilizzando
+ls -l /etc/systemd/system/display-manager.service -> per conoscere quale display manager stiamo utilizzando
+cat /etc/passwd o cat /etc/shadow -> per visualizzare l'elenco delle password
+echo $DESKTOP_SESSION -> per conoscere il desktop environment attualmente in uso
+screenfetch -> per ricevere in output un sommario con informazioni generali sul sistema
+neofetch -> per ricevere in output un sommario con informazioni generali sul sistema
+
+
+SYSTEMCTL:
+Systemctl è il tool con cui controlliamo e gestiamo i servizi systemd.
+Systemd è costituito da un set di daemon, librerie e strumenti che cnsentono l'amministrazione e la configurazione del sistema e interagiscono con il kernel del sistema GNU/Linux.
+
+COMANDI:
+systemctl get-default restituisce il run-level attualmente in uso.
+systemctl set-deafult permette di modificare il run-level di avvio.
+
+
+COS'È LA NVRAM:
+La NVRAM (Not Volatile Random Access Memory) è un chip fisso con pochi KB di memoria che contiene le preferenze di boot.
+
+SYSTEMD vs SYSTEMV:
+SystemV e systemd sono due diverse modalità di gestire l'avvio e la gestione dei servizi e dei processi in un sistema operativo basato su Linux. 
+Entrambi offrono un approccio per controllare il comportamento del sistema durante l'avvio e in diverse situazioni, ma differiscono nella loro architettura e implementazione.
+
+SystemD è il successore di SystemV, fornisce un avvio molto più rapido e una migliore gestione delle dipendenze.
+SystemD gestisce i processi di avvio tramite file .service, mentre SystemV gestisce i processi tramite script di shell in /etc/init*.
+
+In SystemV, il sistema operativo offre sette runlevel, ognuno dei quali definisce uno stato diverso per il sistema. 
+Questi runlevel determinano quali servizi e processi vengono avviati all'avvio del sistema:
+Runlevel 0: Arrestare il sistema
+Runlevel 1: Modalità singolo-utente:
+Runlevel 2: Modalità multi-utente:
+Runlevel 3: Modalità di default, tutti i sistemi sono attivati
+Runlevel 4: Non viene usato, riservato per scopi futuri
+Runlevel 5: Sessione grafica, modalità multiutente, funzionalità di networking attive
+Runlevel 6: Riavvio del sistema
+
+Con l'introduzione di systemd, il concetto di runlevel è stato sostituito dai "target". 
+I target rappresentano diversi stati del sistema e specificano quali servizi devono essere attivati in ciascuno di essi.
+Target 1: PowerOff.target
+Target 2,3,4: Rescue.target
+Target 5: Graphical.target
+Target 6: Reboot.target
+
+Nella NVRAM è contenuto il GRUB EFI, che funge da bootloader. 
+Il bootloader è il primo programma che viene eseguito all'avvio del computer e ha il compito di caricare il kernel del sistema operativo nella memoria del computer. 
+Il bootloader può essere configurato per avviare diverse opzioni di sistema operativo, come versioni diverse del kernel o sistemi operativi multipli, se presenti.
+
+Una volta caricato il kernel, vengono anche caricati i moduli dei driver necessari per inizializzare le periferiche hardware del sistema. 
+Questi driver consentono al sistema operativo di comunicare con le periferiche hardware, come schede di rete, schede video e dispositivi di archiviazione.
