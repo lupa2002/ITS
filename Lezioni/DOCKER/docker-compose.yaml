@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+        mongo:
+                image: mongo:7.0.2
+                ports:
+                        - 27018:27017
+                networks:
+                        - my_network
+                volumes:
+                        - mongo_volume:/data/db
+
+        express:
+                image: mongo-express:1.0.0-20-alpine3.18
+                environment:
+                        - ME_CONFIG_BASICAUTH_USERNAME=pippo
+                        - ME_CONFIG_BASICAUTH_PASSWORD=password
+                        - ME_CONFIG_MONGODB_SERVER=mongo
+                        - ME_CONFIG_MONGODB_PORT=27017
+                ports:
+                        - 8081:8081
+                networks:
+                        - my_network
+
+networks:
+        my_network:
+
+volumes:
+        mongo_volume:
+        exp_volume:
