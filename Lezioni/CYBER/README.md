@@ -9,3 +9,10 @@ Qust'anno tratteremo alcuni elementi fondamentali del RISK ASSESTMENT :
 >> password managing
 
 >> backup di sicurezza 
+
+>> ISO 27001/2022 -> versione più utilizzata rispetto alla EUCC 
+   (parte del programma di certificazione cyber in Europa)
+
+________________________________________________________________________
+
+
