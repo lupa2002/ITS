@@ -47,4 +47,18 @@ REQUISITI:
 
 (definiti i requisiti si andranno a prendere delle scelte in merito solo a questi requisiti )
 
+## in merito a secrecy 
 
+POLICY PER LE PASSWORD 
+
+- passphrases stabilite con un determinato criterio -> 
+- lunghezza passwordi -> 
+- struttura password 
+- rotazione delle password  
+- unicità di una password 
+- multi factor authentication 
+- random password 
+- brute force protection 
+- condivisione delle password sicura
+- secure password storage
+ 
