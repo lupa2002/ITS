@@ -29,6 +29,22 @@ In Italia nel giro di pochi anni ci saranno degli standard da rispettare in mate
 ______________________________________________________________________
 
 
-creazione di una policy ipotetica 
+creazione di una policy ipotetica compliant alla ISO 27100 
+
+si creano dei requisiti da rispettare e poi si realizza un design atto a raggiungere tali requisiti 
+(CISO è la figura che descrive i requisiti e CTO le implementa ) 
+
+REQUISITI:
+
+- CONFIDENTIALITY 
+- AUTHORIZATION 
+- SECRECY 
+- INTEGRITY 
+- AUTHENTICITY 
+- IDENTIFICATION 
+- ACCOUNTABILITY or NON-REPUDIATION 
+- AVAILABILITY 
+
+(definiti i requisiti si andranno a prendere delle scelte in merito solo a questi requisiti )
 
 
