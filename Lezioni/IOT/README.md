@@ -34,3 +34,7 @@ Il codice Arduino è suddiviso in due funzioni principali:
 * `void setup():` Questa funzione viene eseguita una sola volta all'avvio della scheda Arduino. In questa funzione, puoi eseguire le impostazioni iniziali, come configurare le porte di I/O.
 * `void loop():` Questa funzione viene eseguita ripetutamente finché la scheda Arduino è accesa. In questa funzione, puoi inserire il codice che vuoi che la scheda Arduino esegua.
 
+
+Variabili:
+Puoi dichiarare variabili per memorizzare e manipolare i dati nel programma.
+> int numero = 5;
