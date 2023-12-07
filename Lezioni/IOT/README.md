@@ -35,6 +35,18 @@ Il codice Arduino è suddiviso in due funzioni principali:
 * `void loop():` Questa funzione viene eseguita ripetutamente finché la scheda Arduino è accesa. In questa funzione, puoi inserire il codice che vuoi che la scheda Arduino esegua.
 
 
-Variabili:
-Puoi dichiarare variabili per memorizzare e manipolare i dati nel programma.
-> int numero = 5;
+## TIPI DI DATI
+
+Arduino supporta diversi tipi di dati, ciascuno con le proprie caratteristiche.
+
+* `int` è un tipo di dato intero. Può contenere valori da -32768 a 32767.
+* `float` è un tipo di dato a virgola mobile. Può contenere valori con precisione fino a 6 decimali.
+* `char` è un tipo di dato carattere. Può contenere un singolo carattere, come una lettera, un numero o un simbolo.
+* `bool` è un tipo di dato booleano. Può contenere solo due valori: true o false.
+
+## COMANDI BASE
+I comandi di base di Arduino consentono di controllare le porte di input/output (I/O) della scheda. I pin I/O possono essere utilizzati per collegare sensori, dispositivi esterni o altri componenti elettronici.
+
+* `digitalWrite(pin, valore)`: imposta il valore di una porta digitale. Il valore può essere HIGH (5 V) o LOW (0 V).
+* `digitalRead(pin)`: legge il valore di una porta digitale. Il valore letto può essere HIGH o LOW.
+* `pinMode(pin, modalità)`: imposta la modalità di una porta digitale. La modalità può essere INPUT, OUTPUT o INPUT_PULLUP.
