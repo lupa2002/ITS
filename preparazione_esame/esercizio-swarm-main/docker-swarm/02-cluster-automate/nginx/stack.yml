@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  nginx:
+    image: containous/whoami
+    networks:
+    - nginx_network
+    ports:
+    - "8086:80"
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.role != manager]
+networks:
+  nginx_network:
+    driver: overlay
+    attachable: true

@@ -1,0 +1,79 @@
+version: '3.8'
+services:  
+  postgres: 
+    image: postgres:16.0-alpine3.18
+    # labels:
+    #   - db=true
+    ports: 
+      - 5432:5433
+    environment:
+      - POSTGRES_USER=pippo
+        #- POSTGRES_PASSWORD=/run/secrets/pg-password
+      - POSTGRES_PASSWORD=password
+    # secrets:
+    #   - pg-password
+    # configs:
+    #   - source: myfile
+    #     target: /path/to/file/inside/container
+    networks:
+      - db-network
+    volumes:
+      - volume_postgres:/var/lib/postgresql/data
+      # - "./initdb/init.sql:/docker-entrypoint-initdb.d/init.sql"
+    deploy:
+      replicas: 1
+
+  pgadmin:
+    image: dpage/pgadmin4:7.8
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pippo@example.com 
+      - PGADMIN_DEFAULT_PASSWORD=password123
+      - PGADMIN_LISTEN_PORT=8081
+    ports:
+      - 8081:8080
+    volumes:
+      - volume_pgadmin:/var/lib/pgadmin
+    networks:
+      - db-network
+    depends_on: 
+      - postgres  
+    deploy:
+      replicas: 1
+      resources:
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+        limits:
+          cpus: '1'
+          memory: 512M
+
+  postgrest:
+    image: postgrest/postgrest
+    environment:
+      - PGRST_DB_URI=postgres://pippo:password@postgres:5432/postgres
+      - PGRST_DB_SCHEMA=api
+      - PGRST_DB_ANON_ROLE=web_anon
+      - PGRST_OPENAPI_SERVER_PROXY_URI=http://localhost:3000
+    depends_on:
+      - postgres
+    ports:
+      - 3000:3000
+    
+    networks:
+      - db-network
+    deploy:
+      replicas: 2
+      resources:
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+        limits:
+          cpus: '1'
+          memory: 512M
+
+networks:
+  db-network:
+
+volumes:
+  volume_postgres:
+  volume_pgadmin:

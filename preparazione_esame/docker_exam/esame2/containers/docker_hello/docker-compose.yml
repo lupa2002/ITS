@@ -1,0 +1,9 @@
+version: '3.8'
+  
+services:
+  exam:
+    image: exam
+    ports:
+      - 2890:2890
+    environment:
+      NODE_ENV_PORT: 2890

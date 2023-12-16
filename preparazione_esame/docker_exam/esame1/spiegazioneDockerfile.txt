@@ -1,0 +1,27 @@
+# Stage 1: viene utilizzata l'immagine di python3.11 come ambiente di costruzione
+FROM python:3.11 AS builder
+
+# I file del progetto vengono copiati nell'immagine di costruzione
+COPY . /app
+
+# Imposta il percorso di lavoro nella directory dell'app
+WORKDIR /app/doc-custom-app
+
+# Installa MkDocs e le relative dipendenze
+RUN pip install mkdocs
+
+# Costruzione del sito Mkdocs
+RUN mkdocs build
+
+# Stage 2: Utilizzo l'immagine di base nginx:alpine
+FROM nginx:alpine
+
+# Copia i file compilati dall'immagine di costruzione nella nuova immagine
+COPY --from=builder /app/doc-custom-app/site /usr/share/nginx/html
+
+# Esponi la porta 80 per il traffico HTTP
+EXPOSE 80
+
+# Comando di avvio di Nginx come server web per gestire richieste in arrivo
+CMD ["nginx", "-g", "daemon off;"]
+
